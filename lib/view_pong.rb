@@ -5,10 +5,17 @@ class ViewPong
   end
 
   def execute(*)
+    pitch = @pitch_gateway.fetch
+    ball = @ball_gateway.fetch
+
     {
       dimensions: {
-        x: @pitch_gateway.fetch.width,
-        y: @pitch_gateway.fetch.height
+        width: pitch.width,
+        height: pitch.height
+      },
+      ball: {
+        x: ball.x,
+        y: ball.y
       }
     }
   end
